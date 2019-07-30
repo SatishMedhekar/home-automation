@@ -1,0 +1,21 @@
+<div class="headerLeft">
+    <div class="headerLeft-text"> left</div>
+</div>
+
+<div class="headerCenter">
+    <div style="transform:translateY(-50%); top:50%; position: relative;  "> {{title}}</div>
+</div>
+
+<div class="headerRight">
+    <div class="headerRight-temprature">
+        <div style="vertical-align: middle;">{{currentTempurateStatus.currentTemperature | convertToDegree }}</div>
+    </div>
+
+    <div class="headerRight-weatherImg">
+        <img src={{currentTempurateStatus.currentTemperatureUrl}} width="80%">
+    </div>
+
+    <div class="headerRight-weatherStatus">
+        <div style="top: 50%; transform: translateY(-10%); ">{{currentTempurateStatus.currentWeatherStatus }}</div>
+    </div>
+</div>

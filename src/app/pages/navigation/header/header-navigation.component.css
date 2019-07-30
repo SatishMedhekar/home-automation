@@ -1,0 +1,79 @@
+.headerLeft{
+    width: 15%;
+    height: 100%;
+    float: left;
+    background: transparent;
+    position: relative;
+    font-size: 12px;
+    font-weight: bold;
+    color: white;
+    letter-spacing: 1px;
+    border: 1px solid red;
+}
+
+.headerLeft-text{
+    top: 50%; 
+    transform: translateY(-50%);
+    position: relative; 
+    text-align: left; 
+}
+
+.headerCenter{
+    width: 70%;
+    height: 100%;
+    background: transparent;
+    position: relative;
+    font-size: 3.2vw;
+    font-weight: 600;
+    color: white;
+    float: left;
+}
+
+.headerRight{
+    width: 13%;
+    height: 100%;
+    background: transparent;
+    top: 0;
+    bottom: 0;
+    vertical-align: left;
+    float: right;
+    position: relative;
+    color: white;
+}
+
+.headerRight-temprature{
+    position: relative; 
+    text-align: center; 
+    float: left;
+    height: 65%;
+    width: 50%;
+    font-size:3vw;
+    font-weight: 500;
+    background: transparent;
+    top: 50%; 
+    transform: translateY(-70%); 
+}
+
+.headerRight-weatherStatus{
+    position: relative; 
+    text-align: center; 
+    margin-top: 2%;
+    float: left;
+    height: 50%;
+    width: 50%;
+    font-size: 1.2vw;
+    font-weight: 500;
+    background: transparent;
+}
+
+.headerRight-weatherImg{
+    position: relative; 
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center; 
+    float: right;
+    height: 100%;
+    width: 50%;
+    background: transparent;
+}
+

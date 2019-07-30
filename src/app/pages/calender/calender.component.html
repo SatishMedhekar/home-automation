@@ -1,0 +1,11 @@
+<div style="width:100%; height:9% ; position: relative;">
+    <div class="weeklyDayLabel" *ngFor='let day of weekDays'>{{day.name}}</div>
+</div>
+
+<div style="width:99%; height:90%; position:relative;">
+    <div class="weeklyDay" *ngFor='let day of thisMonthCalender'>
+        <div id={{day.id}} style="width: 60%; height:60%; transform: translateX(30%); margin-top: 35%; ">
+            {{day.day}}
+        </div>
+    </div>
+</div>

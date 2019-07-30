@@ -1,0 +1,50 @@
+@font-face{
+    font-family: 'Ciutadella';
+    src: url('/src/assets/fonts/Ciutadella-Regular.ttf'), url('/src/assets/fonts/Ciutadella-Regular.ttf')
+}
+
+@font-face{
+    font-family: 'Ciutadella-Md';
+    src: url('/src/assets/fonts/Ciutadella-Medium.ttf'), url('/src/assets/fonts/Ciutadella-Medium.ttf')
+}
+
+@font-face{
+    font-family: 'AbrilFatface';
+    src: url('/src/assets/fonts/AbrilFatface-Regular.ttf'), url('/src/assets/fonts/AbrilFatface-Regular.ttf')
+}
+
+@font-face{
+    font-family: 'ch';
+    src: url('/src/assets/fonts/NotoSansCJKjp-Regular.otf'), url('/src/assets/fonts/NotoSansCJKjp-Regular.otf')
+}
+
+body {
+    color:grey;
+    background-color: black;
+    text-align: center;  
+    font-size: 100%;
+    line-height: 1.6875;
+    font-family: ch, AbrilFatface, Ciutadella, Ciutadella-Md;
+}
+
+.text{
+    font-family: Ciutadella;
+    -webkit-user-select: none; /* Chrome/Safari */        
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+ */
+}
+
+.text.abr{
+    /* font-family: AbrilFatface; */
+    -webkit-user-select: none; /* Chrome/Safari */        
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+ */
+}
+
+.text.md{
+    font-family: Ciutadella-Md;
+    -webkit-user-select: none; /* Chrome/Safari */        
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+ */
+
+}
