@@ -1,21 +1,23 @@
+
+
 @font-face{
     font-family: 'Ciutadella';
-    src: url('/src/assets/fonts/Ciutadella-Regular.ttf'), url('/src/assets/fonts/Ciutadella-Regular.ttf')
+    src: url('/assets/fonts/Ciutadella-Regular.ttf'),url('/assets/fonts/Ciutadella-Regular.ttf');
 }
 
 @font-face{
     font-family: 'Ciutadella-Md';
-    src: url('/src/assets/fonts/Ciutadella-Medium.ttf'), url('/src/assets/fonts/Ciutadella-Medium.ttf')
+    src: url('/assets/fonts/Ciutadella-Medium.ttf'), url('/assets/fonts/Ciutadella-Medium.ttf')
 }
 
 @font-face{
     font-family: 'AbrilFatface';
-    src: url('/src/assets/fonts/AbrilFatface-Regular.ttf'), url('/src/assets/fonts/AbrilFatface-Regular.ttf')
+    src: url('/assets/fonts/AbrilFatface-Regular.ttf'), url('/assets/fonts/AbrilFatface-Regular.ttf')
 }
 
 @font-face{
     font-family: 'ch';
-    src: url('/src/assets/fonts/NotoSansCJKjp-Regular.otf'), url('/src/assets/fonts/NotoSansCJKjp-Regular.otf')
+    src: url('/assets/fonts/NotoSansCJKjp-Regular.otf'), url('/assets/fonts/NotoSansCJKjp-Regular.otf')
 }
 
 body {

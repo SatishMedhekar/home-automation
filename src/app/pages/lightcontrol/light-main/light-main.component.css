@@ -1,5 +1,13 @@
 
-   .mat-tab-group {
+  .mat-tab-parent{
+    display:flex;
+    height: 100%; 
+    width: 100%;
+    background-image: url('../../../images/CloudyNight.jpg');
+    background-position: center;
+    font-size: 1.2vw;
+  }
+  .mat-tab-group {
     margin-bottom: 48px;
     height: 100%;
     width:100%;
@@ -22,7 +30,7 @@
   ::ng-deep .mat-tab-body-content{
     width: 80%;
     margin: auto;
-    padding-top: 5%;
+    padding-top: 1%;
     overflow-y: hidden;
   }
 
@@ -36,4 +44,9 @@ overflow-y: hidden;
 
 ::ng-deep .mat-tab-label-content {
     color: cyan;
+}
+
+::ng-deep .mat-tab-lables.mat-tab-label{
+  min-width: 20px;
+  width: 20%;
 }
