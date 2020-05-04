@@ -11,12 +11,12 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/cdk": "github:angular/cdk-builds",
+    "@angular/cdk": "~8.1.1",
     "@angular/common": "~8.1.2",
     "@angular/compiler": "~8.1.2",
     "@angular/core": "~8.1.2",
     "@angular/forms": "~8.1.2",
-    "@angular/material": "github:angular/material2-builds",
+    "@angular/material": "~8.1.1",
     "@angular/platform-browser": "~8.1.2",
     "@angular/platform-browser-dynamic": "~8.1.2",
     "@angular/router": "~8.1.2",
@@ -30,7 +30,7 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.801.2",
-    "@angular/animations": "github:angular/animations-builds",
+    "@angular/animations": "~8.2.0",
     "@angular/cli": "~8.1.2",
     "@angular/compiler-cli": "~8.1.2",
     "@angular/language-service": "~8.1.2",

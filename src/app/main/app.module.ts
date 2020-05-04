@@ -24,6 +24,7 @@ import { AuthService } from '../service/authservice';
 
 import { MatTabsModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {DragDropModule} from '@angular/cdk/drag-drop';
 
 import { JQ_TOKEN, CommonFunction } from '../service/index';
 
@@ -56,6 +57,7 @@ let jQuery = window['$'];
     MatTabsModule,
     BrowserAnimationsModule,
     RouterModule,
+    DragDropModule 
   ],
   providers: [
     CommonFunction, WeatherService, AuthService, MenuService,

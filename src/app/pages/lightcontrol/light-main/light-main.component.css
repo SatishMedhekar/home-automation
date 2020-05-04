@@ -6,12 +6,17 @@
     background-image: url('../../../images/CloudyNight.jpg');
     background-position: center;
     font-size: 1.2vw;
+    overflow: hidden;
   }
   .mat-tab-group {
     margin-bottom: 48px;
     height: 100%;
     width:100%;
     position: relative;
+  }
+
+  ::ng-deep .mat-tab-body.mat-tab-body-active{
+    overflow: hidden;
   }
 
   ::ng-deep .mat-tab-label-content{

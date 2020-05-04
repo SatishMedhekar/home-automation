@@ -30,34 +30,34 @@ export class LightdimmerComponent {
         this.commonFunction.resetToMainForm(true);
     }
 
-    ngAfterViewInit() {
-        this.dragItem = document.querySelector("#item");
-        this.container = document.querySelector("#container");
+    // ngAfterViewInit() {
+    //     this.dragItem = document.querySelector("#item");
+    //     this.container = document.querySelector("#container");
 
 
-        this.elementRef.nativeElement.querySelector('#container')
-            .addEventListener('touchstart', this.dragStart.bind(this));
-        this.elementRef.nativeElement.querySelector('#container')
-            .addEventListener('touchmove', this.dragEvent.bind(this));
+    //     this.elementRef.nativeElement.querySelector('#container')
+    //         .addEventListener('touchstart', this.dragStart.bind(this));
+    //     this.elementRef.nativeElement.querySelector('#container')
+    //         .addEventListener('touchmove', this.dragEvent.bind(this));
 
 
-        var demo = document.getElementById("container")
+    //     var demo = document.getElementById("container")
 
-        // this.elementRef.nativeElement.querySelector('#container')
-        //     .addEventListener('touchend', this.dragEnd.bind(this));
+    //     // this.elementRef.nativeElement.querySelector('#container')
+    //     //     .addEventListener('touchend', this.dragEnd.bind(this));
 
-        // this.container.addEventListener("touchstart", this.dragStart, false);
-        // this.container.addEventListener("touchend", this.dragEnd, false);
-        // this.container.addEventListener("touchmove", this.drag, false);
+    //     // this.container.addEventListener("touchstart", this.dragStart, false);
+    //     // this.container.addEventListener("touchend", this.dragEnd, false);
+    //     // this.container.addEventListener("touchmove", this.drag, false);
 
-        // this.container.addEventListener("mousedown", this.dragStart, false);
-        // this.container.addEventListener("mouseup", this.dragEnd, false);
-        // this.container.addEventListener("mousemove", this.drag, false);
-    }
+    //     // this.container.addEventListener("mousedown", this.dragStart, false);
+    //     // this.container.addEventListener("mouseup", this.dragEnd, false);
+    //     // this.container.addEventListener("mousemove", this.drag, false);
+    // }
 
 
     dragStart(e: any) {
-
+console.log('dragstart')
         if (e.type === "touchstart") {
             //this.initialX = e.touches[0].clientX - this.xOffset;
             this.initialY = e.touches[0].clientY - this.yOffset;
@@ -74,12 +74,13 @@ export class LightdimmerComponent {
     }
 
     dragEnd(e: any) {
-
+console.log('dragend')
         this.initialY = this.currentY;
         this.active = false;
     }
 
     dragEvent(e: any) {
+        console.log('dragEvent')
         if (this.active) {
 
             e.preventDefault();
@@ -111,6 +112,7 @@ export class LightdimmerComponent {
     }
 
     setTranslate(xPos: any, yPos: any, el: any) {
+        console.log('settranslate');
         //xPos = 0;
         el.style.transform = "translate3d(" + xPos + "px, " + yPos + "px, 0)";
     }
