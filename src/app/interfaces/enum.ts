@@ -3,4 +3,9 @@ enum Menu {
     RIGHT
 }
 
-export { Menu };
+enum SwitchAction {
+    ON,
+    OFF
+}
+
+export { Menu, SwitchAction };

@@ -3,10 +3,12 @@
     <div class="dimmerindividualblock">
         <div class="controllabel">Kitchen</div>
         <div class="lightswitch">
-            <app-lightswitch></app-lightswitch>
+            <app-lightswitch (switchClicked) = 'onKitchenClicked($event)'
+                             [switchControllerFromDimmer] ='kitchenDimmerAction' ></app-lightswitch> {{kitchenDimmerAction}}
         </div>
         <div class="lightdimmer">
-            <app-lightdimmer></app-lightdimmer>
+            <app-lightdimmer #Kitchen [dimmerControllerFromSwitch] = 'kitchenAction'
+                                      (dimmerDrag) = 'onKitchenDimmerDrag($event)'></app-lightdimmer>
         </div>
 
     </div>
@@ -14,20 +16,20 @@
     <div class="dimmerindividualblock">
         <div class="controllabel">Rumpus</div>
         <div class="lightswitch">
-            <app-lightswitch></app-lightswitch>
+            <app-lightswitch (switchClicked) = 'onRumpusClicked($event)'></app-lightswitch>
         </div>
         <div class="lightdimmer">
-            <app-lightdimmer></app-lightdimmer>
+            <app-lightdimmer [dimmerControllerFromSwitch] = 'rumpusAction'></app-lightdimmer>
         </div>
     </div>
 
     <div class="dimmerindividualblock">
         <div class="controllabel">4 Season</div>
         <div class="lightswitch">
-            <app-lightswitch></app-lightswitch>
+            <app-lightswitch (switchClicked) = 'onSeasonRoomClicked($event)'></app-lightswitch>
         </div>
         <div class="lightdimmer">
-            <app-lightdimmer></app-lightdimmer>
+            <app-lightdimmer [dimmerControllerFromSwitch] = 'seasonRoomAction'></app-lightdimmer>
         </div>
     </div>
 </div>
@@ -36,30 +38,30 @@
     <div class="dimmerindividualblock">
         <div class="controllabel">Passage</div>
         <div class="lightswitch">
-            <app-lightswitch></app-lightswitch>
+            <app-lightswitch (switchClicked) = 'onPassageClicked($event)'></app-lightswitch>
         </div>
         <div class="lightdimmer">
-            <app-lightdimmer></app-lightdimmer>
+            <app-lightdimmer [dimmerControllerFromSwitch] = 'passageAction'></app-lightdimmer>
         </div>
     </div>
 
     <div class="dimmerindividualblock">
         <div class="controllabel">Bathroom</div>
         <div class="lightswitch">
-            <app-lightswitch></app-lightswitch>
+            <app-lightswitch (switchClicked) = 'onBathroomClicked($event)'></app-lightswitch>
         </div>
         <div class="lightdimmer">
-            <app-lightdimmer></app-lightdimmer>
+            <app-lightdimmer [dimmerControllerFromSwitch] = 'bathroomAction'></app-lightdimmer>
         </div>
     </div>
 
     <div class="dimmerindividualblock">
         <div class="controllabel">Laundry</div>
         <div class="lightswitch">
-            <app-lightswitch></app-lightswitch>
+            <app-lightswitch (switchClicked) = 'onLaundryClicked($event)'></app-lightswitch>
         </div>
         <div class="lightdimmer">
-            <app-lightdimmer></app-lightdimmer>
+            <app-lightdimmer [dimmerControllerFromSwitch] = 'laundryAction'></app-lightdimmer>
         </div>
     </div>
 

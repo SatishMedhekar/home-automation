@@ -5,11 +5,13 @@
     </div>
 </div> -->
 
-<div class="container">
+<div class="container" #container>
     <div style="height:100%; width: 5px;background-color:greenyellow"></div>
-  <div class="item" cdkDragBoundary=".container" cdkDrag>
+  <div class="item" #item cdkDragBoundary=".container" [cdkDragFreeDragPosition]="dragPosition"
+  (cdkDragEnded)="onDragEnded($event)" cdkDrag>
    
   </div>
 </div>
+<!-- <button (click)='startTimer()'>Start Timer</button> -->
 <!-- <div style="color:red"> The currentX is= {{ currentX}} currentY is= {{ currentY}} initialY= {{ initialY}} yOffset=
     {{ yOffset}}</div> -->

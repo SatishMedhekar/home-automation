@@ -1,8 +1,11 @@
-import { Component } from "@angular/core";
+import { Component, EventEmitter, Input, Output, ViewChild } from "@angular/core";
 import { ElementRef } from "@angular/core";
-import { interval } from "rxjs";
+import { interval, Subscription } from "rxjs";
 import { CommonFunction } from '../../../service'
 import * as $ from 'jquery';
+import { DimmerService } from "../../navigation/service/dimmer.service";
+import { SwitchAction } from "src/app/interfaces/enum";
+import { ThrowStmt } from "@angular/compiler";
 declare var jQuery: any;
 
 @Component({
@@ -11,125 +14,105 @@ declare var jQuery: any;
     styleUrls: ['./light-dimmer.component.css']
 })
 export class LightdimmerComponent {
-    dragItem: any;
-    container: any;
-    active: boolean = false;
-    currentY: number = 0;
-    initialY: any;
-    yOffset: number = 0;
+    @ViewChild('container', {static: false}) container: ElementRef;
+    @ViewChild('item', {static: false}) item: ElementRef;
+    @Input() dimmerControllerFromSwitch:SwitchAction
+    @Output() dimmerDrag: EventEmitter<SwitchAction> = new EventEmitter();
+    dimmerShift=0;
+    timeLeft: number = 60;
+    interval;
+    dragPosition = {x: 0, y: 0};
+    clickEventsubscription:Subscription
 
-    dragSwitch: any;
-    dragSwitchContainer: any;
-    currentX: number = 0;
-    initialX: number = 0;
-    xOffset: number = 0;
+    constructor(
+        private commonFunction: CommonFunction, 
+        private elementRef: ElementRef,
+        private dimmerService:DimmerService) {
+            this.clickEventsubscription= this.dimmerService.getSwitchClickEvent().subscribe(result=>{
+                this.dimmerControlFromMainSwitch(result);
+            })
+         }
 
-    constructor(private commonFunction: CommonFunction, private elementRef: ElementRef) { }
+    dimmerControlFromMainSwitch(switchAction:SwitchAction){
+        console.log(`The value is click  ${SwitchAction[SwitchAction.ON]}`);
+        if(SwitchAction[switchAction] === SwitchAction[SwitchAction.ON]){
+            this.setDimmerOff()
+        } else {
+            this.setDimmerOn()
+        }
+    }
 
     ngOnInit() {
         this.commonFunction.resetToMainForm(true);
     }
 
-    // ngAfterViewInit() {
-    //     this.dragItem = document.querySelector("#item");
-    //     this.container = document.querySelector("#container");
-
-
-    //     this.elementRef.nativeElement.querySelector('#container')
-    //         .addEventListener('touchstart', this.dragStart.bind(this));
-    //     this.elementRef.nativeElement.querySelector('#container')
-    //         .addEventListener('touchmove', this.dragEvent.bind(this));
-
-
-    //     var demo = document.getElementById("container")
-
-    //     // this.elementRef.nativeElement.querySelector('#container')
-    //     //     .addEventListener('touchend', this.dragEnd.bind(this));
-
-    //     // this.container.addEventListener("touchstart", this.dragStart, false);
-    //     // this.container.addEventListener("touchend", this.dragEnd, false);
-    //     // this.container.addEventListener("touchmove", this.drag, false);
-
-    //     // this.container.addEventListener("mousedown", this.dragStart, false);
-    //     // this.container.addEventListener("mouseup", this.dragEnd, false);
-    //     // this.container.addEventListener("mousemove", this.drag, false);
-    // }
-
-
-    dragStart(e: any) {
-console.log('dragstart')
-        if (e.type === "touchstart") {
-            //this.initialX = e.touches[0].clientX - this.xOffset;
-            this.initialY = e.touches[0].clientY - this.yOffset;
-
+    ngOnChanges():void{
+        if(SwitchAction[this.dimmerControllerFromSwitch] ==  SwitchAction[SwitchAction.ON]){
+            this.setDimmerOn()
         } else {
-            //this.initialX = e.clientX - this.xOffset;
-            this.initialY = e.clientY - this.yOffset;
-
-        }
-
-        if (e.target === this.dragItem) {
-            this.active = true;
+            this.setDimmerOff()
         }
     }
 
-    dragEnd(e: any) {
-console.log('dragend')
-        this.initialY = this.currentY;
-        this.active = false;
+    onDragEnded(event){
+        let element = event.source.getRootElement();
+        let boundingClientRect = element.getBoundingClientRect();
+        let parentPosition = this.getPosition(element);
+        let valueDifference = Math.floor(boundingClientRect.bottom) - Math.floor(parentPosition.top) 
+        this.dimmerShift =  valueDifference 
+        let xpos = Math.floor(boundingClientRect.x - parentPosition.left)
+        let ypos = Math.floor(boundingClientRect.y - parentPosition.top)        
+        console.log(`xpos ${xpos}  ypos ${boundingClientRect.y - parentPosition.top} 
+                     dimmerShift ${this.dimmerShift}
+                     ParentTopPosition ${parentPosition.top}  
+                     boundingClientRect.top ${boundingClientRect.y} 
+                     bottom ${boundingClientRect.bottom}`)
+                     
+                     if(ypos > 0){
+                       console.log('Dimmer Calling Switch On')
+                        this.dimmerDrag.emit(SwitchAction.ON)
+                    }else{
+                        //this.dimmerService.sendSwitchClickEvent(SwitchAction.OFF);
+                        console.log('Dimmer Calling Switch Off')
+                        this.dimmerDrag.emit(SwitchAction.OFF)
+                    }
     }
 
-    dragEvent(e: any) {
-        console.log('dragEvent')
-        if (this.active) {
+    getPosition(el) {
+        let x = 0;
+        let y = 0;
+        while(el && !isNaN(el.offsetLeft) && !isNaN(el.offsetTop)) {
+          x += el.offsetLeft - el.scrollLeft;
+          y += el.offsetTop - el.scrollTop;
+          el = el.offsetParent;
+                  }
+                         return { top: y, left: x };
+      }
 
-            e.preventDefault();
-            var item = document.getElementById("item");
-
-            if (e.type === "touchmove") {
-                this.currentY = e.touches[0].clientY - this.initialY;
-                console.log(`dragEvent if currentY = ${this.currentY} clientY = ${e.touches[0].clientY} initialY = ${this.initialY} `);
-            } else {
-                this.currentY = e.clientY - this.initialY;
-                console.log('dragEvent else ' + this.currentY);
-            }
-            this.yOffset = this.currentY;
-
-            // if (this.currentY < -item.offsetTop) {
-            //     this.currentY = -item.offsetTop;
-            // }
-
-            // if (this.currentY > item.offsetTop) {
-            //     this.currentY = item.offsetTop;
-            // }
-            var demo = document.getElementById("container")
-
-            //if (this.currentY > -item.offsetTop && this.currentY < item.offsetTop) {
-
-            this.setTranslate(0, this.currentY, this.dragItem);
-            //}
+      setDimmerOff(){
+          console.log('Setting DimmerOff')
+        this.dragPosition = {x: this.dragPosition.x + 0, y:  .01};
+      }
+      
+      setDimmerOn(){
+          console.log('Setting DimmerOn')
+        if(this.item != undefined && this.container != undefined){
+         let switchHeight = Math.abs(this.item.nativeElement.scrollHeight)
+         let containerHeight = Math.abs(this.container.nativeElement.scrollHeight)
+         let displaceDimmerSwitchPosition = containerHeight - switchHeight;
+         this.dragPosition = {x: this.dragPosition.x + 0, y:  displaceDimmerSwitchPosition};
         }
-    }
+      }
 
-    setTranslate(xPos: any, yPos: any, el: any) {
-        console.log('settranslate');
-        //xPos = 0;
-        el.style.transform = "translate3d(" + xPos + "px, " + yPos + "px, 0)";
-    }
+      startTimer() {
+        // this.interval = setInterval(() => {
+        //   if(this.timeLeft > 0) {
+        //     this.timeLeft--;
+        //   } else {
+        //     this.timeLeft = 60;
+        //   }
+        // },1000)
+ 
+      }
 
-
-
-    ocillateSwitch(turnOn: boolean) {
-        var item = document.getElementById("item");
-
-        var controllerPosition = turnOn ? item.offsetTop : -item.offsetTop;
-        this.currentY = controllerPosition > 0 ? controllerPosition - 1 : controllerPosition + 1;
-        //this.yOffset = this.currentY;
-        console.log('Calling ocillateSwitch' + item.offsetTop);
-        $('#item').stop().animate({
-            top: "+=" + 120 + "px"
-        }, 2000);
-
-
-    }
 }

@@ -10,14 +10,14 @@ export interface IMonthCalender {
 }
 
 export interface IMonthDetail {
-    month: string;
-    firstDayOfMonth: string;
-    totalDaysInThisMonth: number;
-    birthDays: IBirthDay[];
+    month?: string;
+    firstDayOfMonth?: string;
+    totalDaysInThisMonth?: number;
+    birthDays?: IBirthDay[];
 }
 
 export interface IBirthDay {
     birthDay?: Date
-    dayOfMonth: number;
+    dayOfMonth?: number;
 }
 

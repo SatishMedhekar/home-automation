@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
+import { StorageServiceModule } from 'ngx-webstorage-service';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -30,6 +31,7 @@ import { JQ_TOKEN, CommonFunction } from '../service/index';
 
 import { from } from 'rxjs';
 import { MenuService } from '../pages/navigation/service/menu.service';
+import { DimmerService } from '../pages/navigation/service/dimmer.service';
 
 let jQuery = window['$'];
 
@@ -60,7 +62,7 @@ let jQuery = window['$'];
     DragDropModule 
   ],
   providers: [
-    CommonFunction, WeatherService, AuthService, MenuService,
+    CommonFunction, WeatherService, AuthService, MenuService, DimmerService,
     { provide: JQ_TOKEN, useValue: jQuery }],
   bootstrap: [AppComponent]
 })

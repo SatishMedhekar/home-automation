@@ -2,10 +2,16 @@
     <div class="weeklyDayLabel" *ngFor='let day of weekDays'>{{day.name}}</div>
 </div>
 
-<div style="width:99%; height:90%; position:relative;">
+<div id="main" style="width:99%; height:90%; position:relative;">
     <div class="weeklyDay" *ngFor='let day of thisMonthCalender'>
-        <div id={{day.id}} style="width: 60%; height:60%; transform: translateX(30%); margin-top: 35%; ">
-            {{day.day}}
+        <div *ngFor='let bday of monthlyCalender.birthDays'>
+            <!-- <div [ngStyle]="{'color': day.day == bday.dayOfMonth ? 'red' : '#2989d8', 'background-image'}" style="">
+                {{day.day}} 
+            </div> -->
+            <div [ngClass]="(day.day == bday.dayOfMonth) ? 'dayBdayLabel' : 'dayLabel'" >
+                {{day.day}} 
+            </div>
         </div>
+        
     </div>
 </div>

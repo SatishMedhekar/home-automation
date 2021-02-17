@@ -3,6 +3,8 @@ import { CommonFunction } from '../../service';
 import { IWeekDay, IMonthDetail, IMonthCalender } from '../../interfaces/icalender';
 import { SimpleChanges } from '@angular/core';
 
+declare var require: any;
+
 @Component({
     selector: 'app-calender',
     templateUrl: './calender.component.html',
@@ -15,6 +17,7 @@ export class CalenderComponent {
     @Input() monthlyCalender: IMonthDetail;
     calender: IMonthDetail;
     thisMonthCalender: IMonthCalender[] = [];
+    birthDayCandle:string;
 
     constructor(private commonFunction: CommonFunction, private _zone: NgZone) {
         this.getWeekDays();
@@ -23,9 +26,7 @@ export class CalenderComponent {
     }
 
     ngOnInit() {
-        // this.commonFunction.getCalenderDetail.subscribe((calender:any)=>{
-
-        // })
+        this.birthDayCandle = this.getImage('candle')
     }
 
     getWeekDays() {
@@ -37,7 +38,6 @@ export class CalenderComponent {
     ngOnChanges(changes: SimpleChanges) {
         if (changes['monthlyCalender']) {
             this.createDivForWeek();
-            this.updateCalenderForBirthday();
         }
     }
 
@@ -58,28 +58,15 @@ export class CalenderComponent {
         }
     }
 
-    ngAfterViewInit() {
-        //this.updateCalenderForBirthday();
-    }
+    ngAfterViewChecked() {
+        //this.updateCalenderForBirthday()
+        // var bdayDiv = document.getElementById('10');
+        // console.log(`bdayid ${bdayDiv.querySelector("div")}`)
+  }
 
-    updateCalenderForBirthday() {
-        if (!this.monthlyCalender)
+   getStartDateForCalender(): Number {
+        if(this.monthlyCalender.firstDayOfMonth == undefined)
             return;
-        var birthDate = this.monthlyCalender.birthDays;
-        this.thisMonthCalender.forEach(bday => {
-            if (bday) {
-                if (birthDate.filter(bdate => bdate.dayOfMonth == bday.day).length > 0) {
-                    var bdayDiv = document.getElementById(bday.id.toString());
-                    if (bdayDiv)
-                        bdayDiv.querySelector("div").style.backgroundColor = "red";
-
-                    //innerDiv.ba
-                }
-            }
-        })
-    }
-
-    getStartDateForCalender(): Number {
         var result;
         switch (this.monthlyCalender.firstDayOfMonth.toUpperCase()) {
             case "MONDAY": {
@@ -115,4 +102,12 @@ export class CalenderComponent {
     }
 
 
+    getImage(calenderImage: string): any {
+        let result: string;
+        switch (calenderImage) {
+            case "candle": {
+                return require("../../images/Extras/yellowcandle.png");
+            }
+        }
+    }
 }

@@ -1,4 +1,4 @@
-import { Injectable, Output, EventEmitter } from '@angular/core';
+import { Injectable, Output, EventEmitter, Inject } from '@angular/core';
 import { BehaviorSubject, Observable, of, Observer } from 'rxjs';
 import { IPhoto } from '../interfaces/iphoto';
 import { IMenu } from '../interfaces/imenu';
@@ -7,17 +7,23 @@ import { catchError, tap } from 'rxjs/operators';
 import {  IWeather } from '../interfaces/iweather';
 import { IWeekDay } from '../interfaces/icalender';
 import { IMonthDetail } from '../interfaces/icalender'
+import { LOCAL_STORAGE, StorageService } from 'ngx-webstorage-service';
 import * as io from 'socket.io-client';
+
 declare var require: any;
 const SERVER_URL = 'http://localhost:8808';
+const STORAGE_KEY = 'calender';
 
 @Injectable()
-
 export class CommonFunction {
     socket: any;
     observer: Observer<any>;
     @Output() isToBeResetToMain: EventEmitter<boolean> = new EventEmitter();
-    constructor(private http: HttpClient) {
+   
+
+    constructor(private http: HttpClient,
+        @Inject(LOCAL_STORAGE) private storage: StorageService
+               ) {
         this.socket = io.connect(SERVER_URL, {
             reconnection: true,
             reconnectionDelay: 1000,
@@ -83,6 +89,7 @@ export class CommonFunction {
         require('../images/Pics/whitelittlecloud.png')
         require('../images/Pics/10rain.png')
         require('../images/Pics/13rain.png')
+        require('../images/Extras/yellowcandle.png')
     }
 
     ngOnInit() {
@@ -115,11 +122,17 @@ export class CommonFunction {
         return observable;
     }
 
+    getCalenderFromStore():IMonthDetail{
+        let storeCalender = this.storage.get(STORAGE_KEY) || {}
+        return storeCalender;
+    }
+
     calenderReceivedFromServer() {
         let observable = new Observable(observer => {
             this.socket.on('calender', (data: any) => {
                 observer.next(data);
                 console.log(`Calender value -> ${JSON.stringify(data)}`);
+                this.storage.set(STORAGE_KEY, data);
             });
 
             return () => {

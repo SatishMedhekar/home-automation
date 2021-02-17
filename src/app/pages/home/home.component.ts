@@ -1,7 +1,7 @@
 import { Component, NgZone } from '@angular/core';
 import { IWeather, IWeeklyWeather } from '../../interfaces/iweather';
 import { CommonFunction } from '../../service';
-import { IMonthDetail } from '../../interfaces/icalender';
+import { IMonthCalender, IMonthDetail } from '../../interfaces/icalender';
 
 
 @Component({
@@ -18,9 +18,14 @@ export class HomeComponent {
     constructor(private commonFunction: CommonFunction, private _zone: NgZone) { }
 
     ngOnInit() {
+        console.log('********************')
         this.getWeather();
         this.getCalenderDetail();
+        if(this.monthlyCalender == null)
+            this.monthlyCalender = this.commonFunction.getCalenderFromStore()
     }
+
+   
 
     getWeather() {
         this.commonFunction.weatherReceivedFromServer()
@@ -37,6 +42,7 @@ export class HomeComponent {
             .subscribe(message => {
                 console.log(`CalenderReceivedFromServer -> ${JSON.stringify(message)}`)
                 this.monthlyCalender = <IMonthDetail>message;
+                
             });
     }
 

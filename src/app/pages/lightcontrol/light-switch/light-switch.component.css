@@ -1,5 +1,5 @@
 
-  #switchcase {
+  .switchcase {
     width: 100%;
     height: 100%;
     margin-bottom: 5%;
@@ -18,7 +18,8 @@
     background-clip: text;
   }
 
-  #switch {
+  
+  .switch {
     width: 50%;
     height: 90%;
     background-color: rgb(245, 230, 99);
