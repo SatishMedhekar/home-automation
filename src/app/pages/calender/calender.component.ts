@@ -26,7 +26,7 @@ export class CalenderComponent {
     }
 
     ngOnInit() {
-        this.birthDayCandle = this.getImage('candle')
+        this.birthDayCandle = this.getImage('candle');
     }
 
     getWeekDays() {

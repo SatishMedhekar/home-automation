@@ -5,6 +5,37 @@
     color:white; 
 }
 
+header{
+    display: inline;
+    text-align: left;
+    width: 100%;
+    margin: 0 auto;
+    
+}
+
+header ul{
+    margin: 0;
+    padding: 0;
+    }
+
+header li{
+    display:table;
+    padding: 0;
+    margin: 0;
+    }
+
+.daynight{
+    width: 50%;
+    
+}
+
+.box{
+    margin: 2% 0 0 0;
+    float:left;
+    width: 50%;
+    text-align: left;
+}
+
 .weather-L-R-Container{
     position:relative; 
     width:50%; 

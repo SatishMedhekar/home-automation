@@ -39,7 +39,7 @@ export class LeftNavigation {
                 displayOrder: a.displayOrder,
                 name: a.name,
                 imgPath: this.menuService.getMenuImage(a.name), // a.imagePath + a.imageFileName,
-                routerLink: a.name == 'Light' ? 'lightcontrol' : ''
+                routerLink: a.name == 'Light1' ? 'lightcontrol' : 'weatherdetail'
             }
 
             lmenus.push(lmenu);

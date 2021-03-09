@@ -36,5 +36,6 @@
     font-weight: bold;
     color: forestgreen;
     background-image: url('../../images/Extras/yellowcandle.png');
-    background-size: 100%;
+    background-repeat: no-repeat;
+    background-size: 25%;
 }

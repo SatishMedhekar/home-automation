@@ -1,4 +1,8 @@
 
+@font-face{
+    font-family: 'Lato';
+    src: url('/assets/fonts/Lato-Thin.ttf'),url('/assets/fonts/Lato-Thin.ttf');
+}
 
 @font-face{
     font-family: 'Ciutadella';
@@ -26,7 +30,7 @@ body {
     text-align: center;  
     font-size: 100%;
     line-height: 1.6875;
-    font-family: ch, AbrilFatface, Ciutadella, Ciutadella-Md;
+    font-family: ch, AbrilFatface, Ciutadella, Ciutadella-Md, Lato;
 }
 
 .text{
@@ -49,4 +53,44 @@ body {
     -moz-user-select: none; /* Firefox */
     -ms-user-select: none; /* IE10+ */
 
+}
+
+.text.H2{
+    font-family: Ciutadella-Md;
+    -webkit-user-select: none; /* Chrome/Safari */        
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+ */
+    font-size:1.5vw;
+    font-weight: 500;
+    margin: 0;
+    padding: 0;
+}
+
+.text.H1{
+    font-family: Ciutadella-Md;
+    -webkit-user-select: none; /* Chrome/Safari */        
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+ */
+    font-size:1.0vw;
+    margin: 0;
+    padding: 0;
+}
+
+.text.small{
+    font-family: Ciutadella-Md;
+    -webkit-user-select: none; /* Chrome/Safari */        
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+ */
+    font-size:0.9vw;
+    margin: 0;
+    padding: 0;
+}
+
+.lightfont{
+    font-family: system-ui;
+    -webkit-user-select: none; /* Chrome/Safari */        
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+ */
+    margin: 0;
+    padding: 0;
 }

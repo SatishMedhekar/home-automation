@@ -1,6 +1,6 @@
-<div id="app-weatherdetail" class="mainBody text modal fade" tabindex="-1">
+<!-- <div id="app-weatherdetail" class="mainBody text modal fade" tabindex="-1">
     <div style="margin:0 auto; width: 85%; height:95%">
-        <div style="position: relative; height:10%; width: 100%">
+        <div style="position: relative; height:10%; width: 100%; background-color: red;">
             <div style="text-align: left;">
                 <div>REDLANDS, CA</div>
                 <div>TUESDAY, MARCH 11</div>
@@ -50,4 +50,33 @@
             <div style="background-color: blue; position:relative; width:50%; height: 100%; float: left;"></div>
         </div>
     </div>
+</div> -->
+
+<div class="mainBody">
+    <div style="width: 90%; padding-top: 2%; margin:0 auto;">
+    <header>
+        <ul>
+            <li class="text H2">REDLANDS, CA</li>
+            <li class="text H1">TUESDAY, MARCH 11</li>
+        </ul>
+     </header>
+    
+    <section class="daynight" >
+        <div class="box text small">
+            <div>Day</div>
+            <div><img src={{sunnyImg}} width="40%">
+                <span class="lightfont" style="font-size: 4.0vw; font-weight:lighter;"> 32</span> 
+            </div>
+            <div style="font-size: 9px;">
+                <div style="top: 50%; transform: translateY(-90%); ">Clear</div>
+            </div>
+                        
+        </div>
+        <div class="box text small">Night</div>
+    </section>
+
+    <section>
+
+    </section>
+</div>
 </div>
