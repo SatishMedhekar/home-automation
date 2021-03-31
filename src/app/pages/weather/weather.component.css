@@ -1,0 +1,86 @@
+.mainBody{
+    width:100%;
+    height:100%;
+    background-color: rgb(22, 63, 130);
+    color:white; 
+}
+
+.weather-L-R-Container{
+    position:relative; 
+    width:50%; 
+    height:100%; 
+    float: left;
+}
+
+.weatherLUpper-L-R-Container{
+    width: 50%; 
+    position:relative; 
+    float: left; 
+    height:100%
+}
+
+.weather-DayNight-Heading{
+    position: relative; 
+    float: left; 
+    width:100%; 
+    text-align:left;
+}
+
+.weather-Img-Temp{
+    width: 50%; 
+    height:35%; 
+    position: relative; 
+    float: left; 
+}
+
+.weather-Temp{
+    width:100%; 
+    font-size:45px; 
+    height: 65%;
+}
+
+.weather-Status{
+    width: 100%; 
+    height:35%;
+    font-size: 11px;
+}
+
+.weather-DailyStatus-lbl{
+    width: 50%; 
+    font-size: 11px; 
+    letter-spacing: 1.5px; 
+    color:rgb(184, 178, 178); 
+    text-align:left; 
+    margin-top: 2%; 
+    height:35%; 
+    position: relative; 
+    float: left;
+}
+
+.weather-DailyStatus-Val{
+    width: 50%; 
+    font-size: 11px; 
+    letter-spacing: 1.5px; 
+    text-align:left; 
+    margin-top: 2%; 
+    height:35%; 
+    position: relative; 
+    float: left;
+}
+
+.innerBoxWeather{
+    /* font-family: Ciutadella-Md; */
+    height:40%; 
+    width:100%; 
+    margin:0 auto; 
+    font-size:1.1vw;
+    color: white
+ }
+
+ .innerBoxDay{
+    height:60%; 
+    width:100%; 
+    margin:0 auto; 
+    font-size:2.1vw; 
+    color: white;
+ }

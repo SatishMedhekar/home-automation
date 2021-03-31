@@ -1,0 +1,57 @@
+
+  .mat-tab-parent{
+    display:flex;
+    height: 100%; 
+    width: 100%;
+    background-image: url('../../../images/CloudyNight.jpg');
+    background-position: center;
+    font-size: 1.2vw;
+    overflow: hidden;
+  }
+  .mat-tab-group {
+    margin-bottom: 48px;
+    height: 100%;
+    width:100%;
+    position: relative;
+  }
+
+  ::ng-deep .mat-tab-body.mat-tab-body-active{
+    overflow: hidden;
+  }
+
+  ::ng-deep .mat-tab-label-content{
+    color: red;
+  }
+
+  ::ng-deep .mat-tab-body-wrapper{
+    height:100%;
+  }
+
+  ::ng-deep .outerContainer{
+    height:10%;
+    width: 6%;
+  }
+
+  ::ng-deep .mat-tab-body-content{
+    width: 80%;
+    margin: auto;
+    padding-top: 1%;
+    overflow-y: hidden;
+  }
+
+  .mat-tab-body {
+    overflow-y: hidden;
+}
+
+.mat-tab-body-active{
+overflow-y: hidden;
+}
+
+::ng-deep .mat-tab-label-content {
+    color: cyan;
+}
+
+::ng-deep .mat-tab-lables.mat-tab-label{
+  min-width: 20px;
+  width: 20%;
+}

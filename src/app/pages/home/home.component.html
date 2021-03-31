@@ -1,0 +1,17 @@
+<div style="width:95%; margin: 0 auto; height:95%; border:solid 1px green;">
+    <div class="outerBox" style="margin-left: 0%; float: left;">
+        <div class="titleBox"></div>
+        <div class="innerBox" style="overflow: auto">
+            <app-weather *ngFor="let perDayWeather of weeklyWeather" [perDayWeather]="perDayWeather"></app-weather>
+        </div>
+    </div>
+    <div class="outerBox" style="margin-right: 0%; float: right;">
+        <div class="titleBox">NOV 2018</div>
+        <div class="innerBoxCalender" style="overflow: auto">
+            <app-calender [monthlyCalender]="monthlyCalender"></app-calender>
+        </div>
+    </div>
+</div>
+
+
+<!-- <app-weatherdetail></app-weatherdetail> -->

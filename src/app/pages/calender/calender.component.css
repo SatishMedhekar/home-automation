@@ -1,0 +1,41 @@
+.weeklyDayLabel{
+    /* border: solid 1px red;  */
+    width: 13.7%; 
+    margin-top:2%;
+    height:98%; 
+    float:left; 
+    position:relative;
+    font-weight: bolder;
+    font-size: 1.4vw;
+    color: #2989d8;
+}
+
+.weeklyDay{
+    /* border: solid 1px red;  */
+    width: 13.6%; 
+    height:17.5%; 
+    float:left; 
+    position:relative;
+    font-size: 1.4vw;
+    font-weight: bold;
+    color: #2989d8;
+}
+
+.dayLabel{
+    width: 60%; 
+    height:60%; 
+    transform: translateX(30%); 
+    margin-top: 35%;
+}
+
+.dayBdayLabel{
+    width: 60%; 
+    height:60%; 
+    transform: translateX(30%); 
+    margin-top: 35%;
+    font-weight: bold;
+    color: forestgreen;
+    background-image: url('../../images/Extras/yellowcandle.png');
+    background-repeat: no-repeat;
+    background-size: 25%;
+}

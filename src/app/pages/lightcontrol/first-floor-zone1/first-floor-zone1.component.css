@@ -1,0 +1,36 @@
+.dimmermainblock{
+    display:flex; 
+    height:50%; 
+    width:100%;
+    overflow: hidden;
+}
+
+.dimmerindividualblock{
+    width: 30%; 
+    height: 80%;
+}
+
+.lightswitch{
+    width: 100%; 
+    min-width: 40px; 
+    max-width: 45px; 
+    height: 22px;
+    margin: auto;
+    padding-top: 5%;
+}
+
+.lightdimmer{
+    width: 100%; 
+    min-width: 40px; 
+    max-width: 45px; 
+    height: 90%;
+    margin: auto;
+    padding-top: 10%;
+}
+
+.controllabel{
+font-size: 2.0vw;
+margin: auto;
+color: white;
+}
+
