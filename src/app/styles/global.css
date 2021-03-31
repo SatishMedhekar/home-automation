@@ -86,6 +86,16 @@ body {
     padding: 0;
 }
 
+.text.xsmall{
+    font-family: Ciutadella-Md;
+    -webkit-user-select: none; /* Chrome/Safari */        
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+ */
+    font-size:0.7vw;
+    margin: 0;
+    padding: 0;
+}
+
 .lightfont{
     font-family: system-ui;
     -webkit-user-select: none; /* Chrome/Safari */        

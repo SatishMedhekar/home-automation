@@ -18,4 +18,11 @@ interface IWeather {
     weeklyWeather?: IWeeklyWeather[];
 }
 
-export { ICurrentWeather, IWeeklyWeather, IWeather }
+interface IHourlyForecast{
+    time?:string;
+    weatherImage?:string;
+    forecast?:string;
+    precip?:string;
+}
+
+export { ICurrentWeather, IWeeklyWeather, IWeather, IHourlyForecast }

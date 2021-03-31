@@ -1,59 +1,5 @@
-<!-- <div id="app-weatherdetail" class="mainBody text modal fade" tabindex="-1">
-    <div style="margin:0 auto; width: 85%; height:95%">
-        <div style="position: relative; height:10%; width: 100%; background-color: red;">
-            <div style="text-align: left;">
-                <div>REDLANDS, CA</div>
-                <div>TUESDAY, MARCH 11</div>
-            </div>
-        </div>
-        <div style="position: relative; height: 90%; width:100%">
-            <div style=" position:relative; width:50%; height:100%; float: left;">
-                <div style="width:100%; height: 50%">
-                    <div style="width: 50%; position:relative; float: left; height:100%">
-                        <div style="position: relative; float: left; width:100%; text-align:left;">Day</div>
-                        <div style="width: 50%; height:35%; position: relative; float: left; "></div>
-                        <div style="width:50%; height: 35%; position:relative; float:left;">
-                            <div style="width:100%; font-size:45px; height: 65%;">78</div>
-                            <div style="width: 100%; height:35%;">Clear</div>
-                        </div>
-                        <div style="width:100%;">
-                            <div class="weather-DailyStatus-lbl">Wind</div>
-                            <div class="text md"
-                                style="width: 50%; font-size: 11px; letter-spacing: 1.5px; color:white; text-align:left; margin-top: 2%; height:35%; position: relative; float: left;">
-                                NE 6 mph</div>
-                            <div class="weather-DailyStatus-lbl">Humidity</div>
-                            <div
-                                style="width: 50%; font-size: 11px; letter-spacing: 1.5px; color:white; text-align:left; margin-top: 2%; height:35%; position: relative; float: left;">
-                                17 %</div>
-                            <div class="weather-DailyStatus-lbl">Sunrise</div>
-                            <div
-                                style="width: 50%; font-size: 11px; letter-spacing: 1.5px; color:white; text-align:left; margin-top: 2%; height:35%; position: relative; float: left;">
-                                7:03 AM</div>
-                            <div class="weather-DailyStatus-lbl">Precip Chance</div>
-                            <div
-                                style="width: 50%; font-size: 11px; letter-spacing: 1.5px; color:white; text-align:left; margin-top: 2%; height:35%; position: relative; float: left;">
-                                0 %</div>
-                            <div class="weather-DailyStatus-lbl">UV Index</div>
-                            <div
-                                style="width: 50%; font-size: 11px; letter-spacing: 1.5px; color:white; text-align:left; margin-top: 2%; height:35%; position: relative; float: left;">
-                                7 (High)</div>
-                        </div>
-                    </div>
-                    <div style="width: 50%; border:solid 1px white; position:relative; float: left; height:100%">
-
-                    </div>
-                </div>
-                <div style="width:100%; height:50%; border: solid 1px white">
-
-                </div>
-            </div>
-            <div style="background-color: blue; position:relative; width:50%; height: 100%; float: left;"></div>
-        </div>
-    </div>
-</div> -->
-
 <div class="mainBody">
-    <div style="width: 90%; padding-top: 2%; margin:0 auto;">
+    <div style="width: 90%; padding-top: 2%; margin:0 auto; height: 100%;">
     <header>
         <ul>
             <li class="text H2">REDLANDS, CA</li>
@@ -62,21 +8,127 @@
      </header>
     
     <section class="daynight" >
-        <div class="box text small">
-            <div>Day</div>
-            <div><img src={{sunnyImg}} width="40%">
-                <span class="lightfont" style="font-size: 4.0vw; font-weight:lighter;"> 32</span> 
+        <div class ="boxmain">
+            <div class="box text small">
+                <div>Day</div>
+                <div><img src={{dayImg}} width="30%">
+                    <span class="lightfont daynighttemp" style="margin-left: 12%;"> 32</span> 
+                </div>
+                <div style="font-size: 9px;">
+                    <div class="daynightstatus">Clear</div>
+                </div>
+            
+                <div style="width: 100%;">
+                    <div class="day text small">
+                        <ul>
+                            <li>Wind</li>
+                            <li>Humidity</li>
+                            <li>Sunrise</li>
+                            <li>Precip Chance</li>
+                            <li>UV Index</li>
+                        </ul>   
+                    </div>
+                    <div class="value text small">
+                        <ul>
+                            <li>NE 6 mph</li>
+                            <li>17 %</li>
+                            <li>7:03 AM</li>
+                            <li>0 %</li>
+                            <li>7 (High)</li>
+                        </ul>   
+                    </div>
+                </div>
             </div>
-            <div style="font-size: 9px;">
-                <div style="top: 50%; transform: translateY(-90%); ">Clear</div>
+            <div class="box text small">
+                <div>Night</div>
+                <div><img src={{nightImg}} width="30%">
+                    <span class="lightfont daynighttemp" style="margin-left: 12%;" > 32</span> 
+                </div>
+                <div style="font-size: 9px;">
+                    <div class="daynightstatus">Clear</div>
+                </div>
+                
+                <div class="day text small">
+                    <ul>
+                        <li>Wind</li>
+                        <li>Humidity</li>
+                        <li>Sunset</li>
+                        <li>Precip Chance</li>
+                    </ul>   
+                </div>
+                <div class="value text small">
+                    <ul>
+                        <li>NNW 11 mph</li>
+                        <li>19 %</li>
+                        <li>6:56 PM</li>
+                        <li>0 %</li>
+                    </ul>   
+                </div>
             </div>
-                        
         </div>
-        <div class="box text small">Night</div>
+        
+        <div class="boxmain text small" style="padding-top: 3%;">
+            <ul>
+                <li class="text H1">HISTORICAL WEATHER</li>
+                <li class="text H1">In past 10 years, it rained 1 out of 10 times on this day</li>
+            </ul>
+        </div>
+
+        <div class="boxmain text small">
+            <div class="historical text small">
+                <ul>
+                    <li class="lightbluefont">Average High</li>
+                    <li class="text">75</li>
+                    <li class="lightbluefont">Record High</li>
+                    <li class="text">90</li>
+                </ul>   
+            </div>
+            <div class="historical text small">
+                <ul>
+                    <li class="lightbluefont">Average Low</li>
+                    <li class="text">19 %</li>
+                    <li class="lightbluefont">Record Low</li>
+                    <li class="text">0 %</li>
+                </ul>   
+            </div>
+            <div class="historical text small">
+                <ul>
+                    <li class="lightbluefont">Average Rainfall</li>
+                    <li class="text">19 %</li>
+                    <li class="lightbluefont">Record Rainfall</li>
+                    <li class="text">0 %</li>
+                </ul>   
+            </div>
+        </div>
     </section>
 
-    <section>
+   <aside>
+    <div class="text H1">HOURLY FORECAST</div>
+        <div style="width: 100%; height:100%;" >
+            <table class="table text small" style="margin:0 auto" >
+                <thead class="text xsmall">
+                    <tr style=" background-color: rgb(22, 63, 130);">
+                        <th style="width: 5%;"></th>
+                        <th style="width: 15%;">Time</th>
+                        <th style="width: 22%;"></th>
+                        <th style="width: 42%;">Forecse</th>
+                        <th style="width:20%">Precip.Chance</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let forecast of hourlyforecast" style="height:3em;" >
+                        <td style="width: 5%;"></td>
+                        <td style="width: 15%;">{{forecast.time}}</td>
+                        <td style="width: 22%;"><img src={{forecast.weatherImage}} width="25%"></td>
+                        <td style="width: 42%;">{{forecast.forecast}}</td>
+                        <td style="width:20%">{{forecast.precip}}</td>
+                    </tr>
+                </tbody>
+            </table>
+         </div>
+    
+</aside>
 
-    </section>
-</div>
+    
+    </div>
 </div>

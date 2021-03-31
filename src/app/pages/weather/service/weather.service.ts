@@ -39,6 +39,10 @@ export class WeatherService {
                 result = this.getImage("hotsun");
                 break;
             }
+            case "night": {
+                result = this.getImage("night");
+                break;
+            }
             default: {
                 //statements; 
                 break;
@@ -77,8 +81,11 @@ export class WeatherService {
             case "sunverylittlecloud": {
                 return require("../../../images/Pics/sunverylittlecloud.png");
             }
-            case "night": {
+            case "nightSky": {
                 return require("../../../images/Pics/night.png");
+            }
+            case "night": {
+                return require("../../../images/Pics/night1.png");
             }
             case "nightcloud": {
                 return require("../../../images/Pics/nightcloud.png");
